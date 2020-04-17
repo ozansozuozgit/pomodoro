@@ -1,0 +1,102 @@
+body{
+    background: black;
+    font-size: 1.4em;
+    font-family: 'Orbitron', sans-serif;
+    color: black;
+
+}
+#timer-container{
+    margin: auto;
+    /*width: 50vw;*/
+    display: flex;
+    flex-direction: column;
+    /*text-align: center;*/
+}
+
+#title{
+    text-shadow: 0px 0px 4px #ff0050;
+    text-align: center;
+}
+#timer-status{
+    color: #14801d;
+    text-align: center;
+    /*margin: 0;*/
+
+}
+
+#timer-display{
+    font-size: 5em;
+    margin: 0px auto 50px auto;
+    padding: 35px 50px;
+    border-radius: 15px;
+    /*text-shadow: 0 1px 10px #09dff3;*/
+    color: gray;
+    /*text-shadow: 1px 1px 7px #ff0050;*/
+    width: 380px;
+}
+
+#slider{
+    -webkit-appearance: none;
+    height: 20px;
+    border-radius: 5px;
+    border: 1px solid rgba(255, 0, 80, 0.55);
+    background: #000000;
+    outline: none;
+    width: 550px;
+    margin: auto;
+}
+
+#slider:disabled{
+    filter: grayscale(80%);
+;}
+
+#slider::-webkit-slider-thumb{
+    background: url("../images/tomato.png");
+    -webkit-appearance: none;
+    width: 50px;
+    height: 59px;
+    border: 0;
+    cursor: pointer;
+}
+#slider::-moz-range-thumb{
+    background: url("../images/tomato.png");
+    width: 23px;
+    height: 24px;
+    border: 0;
+    cursor: pointer;
+}
+#btn-start{
+    display: block;
+    /*width: 200px;*/
+    margin: 60px auto 0 auto;
+    font-size: 2.5em;
+    background: none;
+    border: none;
+    outline: none;
+    transition: 0.2s ease-in-out;
+    border-radius: 10px;
+}
+.pause{
+color: #960630;
+}
+.start{
+    color: #14801d;
+}
+.pause:hover{
+    box-shadow: 0 0 25px #960630;
+}
+
+.start:hover{
+    box-shadow: 0 0 25px #14801d;
+}
+
+
+#tomato-container{
+    /*transition: all 2s ease;*/
+    margin:20px auto 0 auto;
+}
+
+.tomato-in{
+    transition: 0.6s ease-in-out;
+    opacity: 1!important;
+}
