@@ -2,6 +2,7 @@ const timerDisplay = document.querySelector("#timer-display");
 const slider = document.querySelector("#slider");
 const btnStart = document.querySelector("#btn-start");
 const tomatoContainer = document.querySelector("#tomato-container");
+const backgroundGif = document.querySelector("#background-gif");
 
 // Default Values
 let minutes = 24;
@@ -21,6 +22,7 @@ btnStart.addEventListener("click",()=>{
         slider.disabled = true;
         slider.style.opacity = "0.7";
         timerDisplay.style.color = "#ff00509c";
+        backgroundGif.src = "images/study-gif.gif";
 
     }
     else {
@@ -29,8 +31,7 @@ btnStart.addEventListener("click",()=>{
         slider.disabled = false;
         slider.style.opacity = "1";
         timerDisplay.style.color = "grey";
-
-
+        backgroundGif.src = "";
     }
     btnStart.classList.toggle("start");
 
