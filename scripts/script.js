@@ -3,6 +3,9 @@ const slider = document.querySelector("#slider");
 const btnStart = document.querySelector("#btn-start");
 const tomatoContainer = document.querySelector("#tomato-container");
 const backgroundGif = document.querySelector("#background-gif");
+const minutesDisplay = document.querySelector("#minutes-display");
+const secondsDisplay = document.querySelector("#seconds-display");
+
 
 // Default Values
 let minutes = 24;
@@ -11,7 +14,9 @@ let t;
 
 slider.addEventListener("input", ()=>{
     minutes = slider.value -1;
-    timerDisplay.textContent = `${slider.value < 10 ? "0" : ""}${slider.value}:00`;
+    // timerDisplay.textContent = `${slider.value < 10 ? "0" : ""}${slider.value}:00`;
+    minutesDisplay.textContent = `${minutes < 10 ? '0' : ''}${minutes}`;
+    secondsDisplay.textContent = `${seconds < 10 ? '0' : ''}${seconds}`;
     seconds = 1;
 });
 
@@ -40,8 +45,9 @@ btnStart.addEventListener("click",()=>{
 
 function updateTimer() {
 
-    timerDisplay.textContent = `${minutes < 10 ? '0' : ''}${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
-
+    // timerDisplay.textContent = `${minutes < 10 ? '0' : ''}${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+    minutesDisplay.textContent = `${minutes < 10 ? '0' : ''}${minutes}`;
+    secondsDisplay.textContent = `${seconds < 10 ? '0' : ''}${seconds}`;
     if (minutes === 0 && seconds === 0){
         createTomato();
         clearInterval(t);

@@ -60,7 +60,9 @@ button{
     padding: 35px 50px;
     border-radius: 15px;
     color: gray;
-    width: 380px;
+    /*width: 380px;*/
+    display: flex;
+    justify-content: space-between;
 }
 
 #slider{
