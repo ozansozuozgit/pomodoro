@@ -6,14 +6,16 @@ const backgroundGif = document.querySelector("#background-gif");
 const btnStudy = document.querySelector("#btn-study");
 const btnRest = document.querySelector("#btn-rest");
 const title = document.querySelector("#title");
-const click = document.querySelector("#start-audio");
+const clickAudio = document.querySelector("#start-audio");
+const sessionEndAudio = document.querySelector("#session-end-audio");
 
 // Default Values
 let minutes = 24;
 let seconds = 59;
 let t; // Timeout variable
 let tomatoMinutes = 0; // To be displayed under tomato image
-click.volume = 0.1; //
+clickAudio.volume = 0.1; //
+sessionEndAudio.volume = 0.3;
 
 // Create Tomato after session with text below on how long the session was
 function createTomato(mode) {
@@ -87,7 +89,7 @@ function toggleRestMode() {
   minutes = 9;
   seconds = 59;
   slider.value = 10;
-  tomatoMinutes = 10;
+  // tomatoMinutes = 10;
   backgroundGif.src = "images/rest-gif.gif";
   document.querySelector("link[rel*='icon']").href = "images/tomato-green.png";
 }
@@ -103,7 +105,7 @@ function toggleStudyMode() {
   minutes = 24;
   seconds = 59;
   slider.value = 25;
-  tomatoMinutes = 25;
+  // tomatoMinutes = 25;
   backgroundGif.src = "images/study-gif.gif";
   document.querySelector("link[rel*='icon']").href = "images/tomato.png";
 }
@@ -115,16 +117,17 @@ function updateTimer() {
   if (minutes === 0 && seconds === 0) {
     // Switch between rest and study mode when their sessions have ended and create a tomato with session duration
     if (btnStudy.classList.contains("active")) {
-      toggleRestMode();
       createTomato("study");
+      toggleRestMode();
     } else {
-      toggleStudyMode();
       createTomato("rest");
+      toggleStudyMode();
     }
     // Pause on session end
     clearInterval(t);
     btnStart.classList.toggle("start");
     togglePause();
+    sessionEndAudio.play();
   }
   // Timer logic
   if (seconds <= 0) {
@@ -138,8 +141,8 @@ function updateTimer() {
 // Toggle between STUDY and REST buttons
 // Deactivate button once clicked and only allow the other(REST) button to be clicked
 btnStudy.addEventListener("click", () => {
-  click.load(); // Stop audio when clicked repeatedly
-  click.play();
+  clickAudio.load(); // Stop audio when clicked repeatedly
+  clickAudio.play();
   if (btnRest.classList.contains("active")) {
     toggleStudyMode();
     backgroundGif.src = ""; // Background should be activated when user clicks start, null until then
@@ -150,8 +153,8 @@ btnStudy.addEventListener("click", () => {
 });
 // Same as above reverse with REST
 btnRest.addEventListener("click", () => {
-  click.load();
-  click.play();
+  clickAudio.load();
+  clickAudio.play();
   if (btnStudy.classList.contains("active")) {
     toggleRestMode();
     backgroundGif.src = "";
@@ -164,12 +167,12 @@ btnRest.addEventListener("click", () => {
 slider.addEventListener("input", () => {
   minutes = slider.value - 1; // Seconds will begin with 59, so we subtract value with 1 (15 ==> 14:59)
   timerDisplay.textContent = `${slider.value < 10 ? "0" : ""}${slider.value}:00`; // Add 0 before value if below 10
-  tomatoMinutes = slider.value; // Used to hold the slider value for displaying session duration
 });
 // Start session
 btnStart.addEventListener("click", () => {
-  click.load();
-  click.play();
+  tomatoMinutes = slider.value; // Used to hold the slider value for displaying session duration
+  clickAudio.load();
+  clickAudio.play();
   if (btnStart.classList.contains("start") && minutes >= 0) {
     toggleStart();
     t = setInterval(updateTimer, 1000);
