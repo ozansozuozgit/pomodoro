@@ -19,7 +19,6 @@ button{
     display: flex;
     flex-direction: column;
 }
-
 #title{
     text-shadow: 0 0 4px #ff0050;
     text-align: center;
@@ -66,7 +65,6 @@ input[type=range]{
     width: 550px;
     margin: auto;
 }
-
 input[type=range].study-range{
     border: 1px solid rgba(255, 0, 80, 0.55);
 
@@ -92,7 +90,6 @@ input[type=range].study-range::-webkit-slider-thumb{
 input[type=range].rest-range::-webkit-slider-thumb{
     background: url("../images/tomato-green.png");
 }
-
 #slider::-moz-range-thumb{
     background: url("../images/tomato.png");
     width: 23px;
