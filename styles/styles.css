@@ -5,20 +5,13 @@ body{
 }
 button{
     cursor: pointer;
-
-}
-#container{
-    /*background: url("../images/giphy.gif");*/
-    /*filter: blur(20px) grayscale(20%);*/
 }
 #background-gif{
     z-index: -2;
     position: absolute;
     filter: blur(5px) grayscale(50%);
-    /*filter: invert(2%) sepia(9%) saturate(7%) hue-rotate(3deg) brightness(9%) contrast(1%);*/
     height: 100vh;
     width: 100vw;
-    /*background-color: red;*/
 }
 #timer-container{
     z-index: 122;
@@ -48,39 +41,44 @@ button{
 }
 #btn-study{
     background-color: #960630;
-    filter: blur(0px) grayscale(90%);
 }
 #btn-rest{
     background-color: #157b1d;
 }
-
 #timer-display{
     font-size: 5em;
-    margin: 0px auto 50px auto;
+    margin: 30px auto;
     padding: 35px 50px;
     border-radius: 15px;
-    color: gray;
-    /*width: 380px;*/
-    display: flex;
-    justify-content: space-between;
+    color: #ff00509c;
+    font-family: 'Roboto', sans-serif;
+    box-shadow: 0 0 20px;
 }
-
-#slider{
+.active{
+    filter: blur(0px) grayscale(90%);
+}
+input[type=range]{
     -webkit-appearance: none;
     height: 20px;
     border-radius: 5px;
-    border: 1px solid rgba(255, 0, 80, 0.55);
     background: #000000;
     outline: none;
     width: 550px;
     margin: auto;
 }
 
-#slider:disabled{
-    filter: grayscale(80%);
-;}
+input[type=range].study-range{
+    border: 1px solid rgba(255, 0, 80, 0.55);
 
-#slider::-webkit-slider-thumb{
+}
+input[type=range].rest-range{
+    border: 1px solid #157b1d;
+}
+
+input[type=range]:disabled{
+    filter: grayscale(80%);
+}
+input[type=range]::-webkit-slider-thumb {
     background: url("../images/tomato.png");
     -webkit-appearance: none;
     width: 50px;
@@ -88,6 +86,13 @@ button{
     border: 0;
     cursor: pointer;
 }
+input[type=range].study-range::-webkit-slider-thumb{
+    background: url("../images/tomato.png");
+}
+input[type=range].rest-range::-webkit-slider-thumb{
+    background: url("../images/tomato-green.png");
+}
+
 #slider::-moz-range-thumb{
     background: url("../images/tomato.png");
     width: 23px;
@@ -97,36 +102,33 @@ button{
 }
 #btn-start{
     display: block;
-    margin: 60px auto 0 auto;
+    margin: 10px auto 0 auto;
     font-size: 2.5em;
     background: none;
     border: none;
     outline: none;
     transition: 0.2s ease-in-out;
     border-radius: 10px;
+    color: #960630;
 }
-.pause{
-color: #960630;
+#btn-start:hover{
+    box-shadow: 0 0 25px white;
 }
-.start{
-    color: #14801d;
+#btn-start:active{
+    opacity: 0.7;
 }
-.pause:hover{
-    color: white;
-    box-shadow: 0 0 25px #960630;
-}
-
-.start:hover{
-    color: white;
-    box-shadow: 0 0 25px #14801d;
-}
-
 #tomato-container{
-    /*transition: all 2s ease;*/
+    display: flex;
     margin:20px auto 0 auto;
+    height: 70px;
 }
-
 .tomato-in{
     transition: 0.6s ease-in-out;
     opacity: 1!important;
+    height: 35px;
+}
+figcaption{
+    text-align: center;
+    font-size: 15px;
+    color: wheat;
 }

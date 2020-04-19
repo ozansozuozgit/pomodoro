@@ -5,10 +5,12 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Pomodoro - Cyber</title>
+    <title>Pomodoro Timer</title>
     <link rel="stylesheet" href="styles/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap&family=Roboto&display=swap" rel="stylesheet">
+    <link rel='icon' href='images/tomato.png' type='image/x-icon'/>
+
 
 </head>
 <body>
@@ -18,13 +20,14 @@
         <img id="background-gif" src="" alt="">
         <h1 id="title">Pomodoro </h1>
         <div id="timer-status">
-            <button id="btn-study">STUDY</button>
+            <button id="btn-study" class="active" disabled>STUDY</button>
             <button id="btn-rest">REST</button>
         </div>
-        <span id="timer-display"><span id="minutes-display">12</span><span>:</span><span id="seconds-display">23</span></span>
-        <input type="range" min="1" max="60" id="slider" value="25">
-        <button id="btn-start" class="start pause">START</button>
+        <span id="timer-display">25:00</span>
+        <input type="range" min="1" max="60" class="study-range" value="25">
         <div id="tomato-container"></div>
+
+        <button id="btn-start" class="start pause">START</button>
     </div>
 </div>
 
