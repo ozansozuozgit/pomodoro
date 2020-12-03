@@ -1,6 +1,6 @@
-## Live Demo
+## Pomodoro JavaScript
 
-- [Pomodoro](https://ozansozuozgit.github.io/pomodoro/)
+[Live Demo](https://ozansozuozgit.github.io/pomodoro/)
 
 This is a Pomodoro time management tool created to help with studying by using time intervals. Every interval produces a tomato of the amount that was studied or rested.
 
